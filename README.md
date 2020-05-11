@@ -1,4 +1,4 @@
-javascript 学习记录
+JavasSript 学习记录
 -------------------
 
 ---
