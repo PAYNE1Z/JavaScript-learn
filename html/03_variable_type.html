@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>变量类型</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+          1. 基本的数据类型
+              number string boolean undefined null
+          2. 引用的数据类型
+              object array function
+       */
+      // Number 数值类型
+      var a = 3;
+      var b = 1.23;
+      var c = -1;
+
+      // typeof 用来检查当前变量的数据类型
+      alert(typeof a);
+      alert(typeof b);
+      alert(typeof c);
+
+      // String 字符串
+      var name = 'Mercy';
+      var text = 'Hello World';
+
+      alert(typeof name);
+      alert(typeof text);
+
+      // boolean 布尔值 0(false) or 1(true)
+      var isTrue = 3 < 4;
+      alert(isTrue);
+      alert(typeof isTrue);
+
+      // undefined 未定义
+      var school;
+      alert(school);  // undefined 变量只声明没有定义
+      alert(typeof school);  // 类型显示为 undefined
+
+      // null 空值，空对象
+      var phone = null;
+      alert(phone);         // null 空值
+      alert(typeof phone);  // null 也属于空对象，所有类型显示为 object
+
+    </script>
+  </body>
+</html>

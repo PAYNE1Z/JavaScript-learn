@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>数组</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 创建
+      // 表示方式与python一样,使用[]中括号来表示
+      var shopList = ['apple', 'milk', 'orange', 'oatmeal', 'fish', 'bread']
+      console.log('shopList: ' + shopList);  // 可以在浏览器的console调试栏看到数组信息
+      alert(typeof shopList);  // 数组在js中属于 object 数据类型
+
+      // 访问
+      var byOne = shopList[0];  // 取第一个成员
+      console.log('shopList first member: ' + byOne);
+      shopList[0] = 'watermelon';  // 修改第一个成员
+      console.log('new shopList: ' + shopList);
+
+      // 数组的长度
+      console.log('Array length: ' + shopList.length);
+
+    </script>
+  </body>
+</html>

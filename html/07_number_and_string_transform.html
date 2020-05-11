@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>数值与字符串转换</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //1. 隐式转换 数值->字符串
+      var a = 12;
+      var b = a + "";
+      alert(b);
+      alert(typeof b);
+
+      // 2. toString() 数值->字符串
+      var num = 123;
+      var myStr = num.toString();
+      alert(typeof myStr);
+
+      //内置方法 Number 字符串->数值
+      var str = '100';
+      var myNum = Number(str);
+      alert(typeof myNum);
+
+      var str1 = '123a456b';
+      var myNum2 = Number(str1);
+      alert(myNum2);  // 报错 NAN(not a number) 说明这是一个不能转换成数值的字符串
+      alert(typeof myNum2);  // 类型是number
+
+
+    </script>
+  </body>
+</html>
