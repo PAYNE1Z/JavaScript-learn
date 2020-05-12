@@ -1,6 +1,10 @@
 JavasSript 学习记录
 ===================
 
+#### :smiley: GOOD GOOD STUDY :smiley:
+
+#### :heart_eyes: DAY DAY UP :rocket:
+
 ---
 
 ### 一、JavasSript基础
