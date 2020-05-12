@@ -1,4 +1,4 @@
-JavasSript 学习记录
+JavaScript 学习记录
 ===================
 
 #### :smiley: GOOD GOOD STUDY :smiley:
@@ -7,7 +7,7 @@ JavasSript 学习记录
 
 ---
 
-### 一、JavasSript基础
+### 一、JavaScript基础
 
 1.	[如何在页面中插入JavaScript](html/01_insert_type.html)
 2.	[变量](html/o2_variable.html)
