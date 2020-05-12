@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>逻辑运算符</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+
+      // && 逻辑与
+      var weather = 'sunny';
+      var temp = 33;
+      if (weather === 'sunny' && temp > 30) {
+        console.log("It's too hot, Stay at home.");
+      }else if (weather === 'sunny' && temp < 30) {
+        console.log("It's a fine day, Go out and play.");
+      }
+
+      //  || 逻辑或
+      var faceScore = 60;
+      var statureScore = 90;
+      if (faceScore >= 80 || statureScore >= 80) {
+        console.log('Ideal girlfriend');
+      } else {
+        console.log('Bad girlfriend');
+      }
+
+      //  ! 取反
+      var isLogin = true;
+      if (!isLogin) {
+        console.log('Not logged in.');
+      } else {
+        console.log('Already logged in.');
+      }
+
+
+    </script>
+  </body>
+</html>

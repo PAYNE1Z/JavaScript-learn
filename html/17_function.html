@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>函数</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 使用 function 关键字定义函数
+      // function function_name() {statement}
+
+      function doSomething() {
+        var htmlStr = '<h1>Do the right thing</h1>';
+        document.write(htmlStr);
+      }
+
+      doSomething();  // 调用函数
+
+
+      // 函数传参
+      // function function_name(args) {statement}
+      function echoStr(str) {
+        document.write('<h1>' + str + '</h1>');
+      }
+      var text = 'Hello World';
+      echoStr(text);
+
+
+      // 函数返回值
+      function addition(a, b) {
+        return a + b;
+      }
+      var sum = addition(2,3);
+      console.log('sum: ' + sum);
+
+
+      // 函数表达式(匿名函数)
+      var divition = function(a, b){
+        return a / b;
+      }
+      console.log('div: ' + divition(10,3));
+
+
+      // 函数作用域, 函数外定义的变量为全局变量;函数内定义的变量为局部变量
+      // 全局变量: 函数内外都能访问
+      // 局部变量: 只有函数内部能访问
+      var x = 3;
+      console.log('x: ' + x);
+      function square() {
+        var x1 = 10;
+        window.x2 = 20;  // 可使用window对象，在函数内部定义或修改全局变量
+        return x*x;
+      }
+      console.log('square: ' + square());  // 函数内能直接调用全局变量x;结果为9
+      <!-- console.log('x1: ' + x1);  // 函数外不能调用局部变量x1;结果报错x1未定义 -->
+      console.log('x2: ' + x2);  // 函数内部定义的全局变量x2;结果能正常显示
+
+
+      /*
+          全局污染:
+          由于js执行顺序由上到下,当在多个js文件中包含同名的函数或变量时,后面文件中的函数或变量会覆盖前面文件的
+          减少污染:
+          使用函数表达式(匿名函数),将函数或变量使用匿名函数包裹起来，使其成为局部
+      */
+      (function(){
+        var v1 = 10;
+        var func = function(){
+          return v1*v1;
+        };
+        window.fun1=func;
+      })();
+
+      (function(){
+        var v1 = 20;
+        var func = function(){
+          return v1*v1;
+        };
+        window.fun2=func;
+      })();
+     // 同名的两个func通过匿名函数包裹变成局部
+     // 再通过window对象将两个同名函数赋值给两个不同名的全局变量
+     console.log('fun1: ' + fun1());
+     console.log('fun2: ' + fun2());
+
+
+    </script>
+  </body>
+</html>
