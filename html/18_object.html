@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>对象object</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 对象 字面量创建
+      // 类似python对象,每个对象都有自己的属性和方法
+      // 属性就是字典里的的key, 对应的值可以是任意数据类型或函数
+      var person = {
+        name: 'Mercy',
+        age: 22,
+        sex: 'male',
+        isSingle: true,
+        fav: function() {
+          return 'like beautiful girl';
+        }
+      }
+
+      // 对象调用
+      console.log('name: ' + person.name);
+      console.log('age: ' + person.age);
+      console.log('sex: ' + person.sex);
+      console.log('single: ' + person.isSingle);
+      console.log('fav: ' + person.fav());
+
+
+    </script>
+  </body>
+</html>

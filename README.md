@@ -25,4 +25,6 @@ JavaScript 学习记录
 14.	[for循环](html/14_for_loop.html)
 15.	[break与continue语句](html/15_break_and_continue.html)
 16.	[while循环](html/16_while_loop.html)
-17.	[函数的定义](html/17_function.html)
+17.	[函数function](html/17_function.html)
+18.	[对象Object](html/18_object.html)
+19.	[数组array常用方法](html/19_array_common_method.html)
