@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>数值与字符串转换</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //1. 隐式转换 数值->字符串
+      var a = 12;
+      var b = a + "";
+      console.log(b);
+      console.log(typeof b);
+
+      // 2. toString() 数值->字符串
+      var num = 123;
+      var myStr = num.toString();
+      console.log(typeof myStr);
+
+      //内置方法 Number 字符串->数值
+      var str = '100';
+      var myNum = Number(str);
+      console.log(typeof myNum);
+
+      var str1 = '123a456b';
+      var myNum2 = Number(str1);
+      console.log(myNum2);  // 报错 NaN(Not a Number) 说明这是一个不能转换成数值的字符串
+      console.log(typeof myNum2);  // 类型是number
+      console.log(isNaN(myNum2));  // 检测是否是NaN
+
+
+      // parseInt(str)  转换为整形
+      var intStr = '1237ab.1232174'
+      console.log('str to int: ' + parseInt(intStr));  // 1237; 遇到非数值型字符串就停止转换并返回
+
+      // parseFloat(str)  转换为浮点型
+      var floatStr = '1268.234881'
+      console.log('str to float: ' + parseFloat(floatStr));  // 如果字符串中包含有非数值型字符，则遇到非数值型字符串就停止转换并返回
+
+      // floatnum.toFixed(num)  保留小数位数,并转为字符串(如果尾数是0会去掉)
+      var floatNum = 2020.634936
+      console.log(Number(floatNum.toFixed(2))); // 保留2位小数
+
+    </script>
+  </body>
+</html>

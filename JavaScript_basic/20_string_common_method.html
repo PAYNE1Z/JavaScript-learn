@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>字符串常用方法</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 属性
+      // length  计算字符串长度
+      var str = 'Hello World';
+      console.log('str length: ' + str.length);
+
+
+      // 方法
+      // charAt(index) 获取指定字符
+      console.log('str charAt(1): ' + str.charAt(1));
+
+      // charCodeAt(index) 获取字符对应的ascii编码
+      console.log('str charCodeAt(0): ' + str.charCodeAt(0));
+
+      // concat(any) 字符串的拼接
+      console.log('new str: ' + str.concat(' -- JavaScript.'));
+
+      // slice(startIndex, endIndex=length) 字符串切片(顾头不顾尾)
+      console.log('str slice(3,6): ' + str.slice(3,6));
+      console.log('str slice(-6,-1): ' + str.slice(-6,-1));
+      // 当起始位置与结束位置为负值时的位置计算: -Index + strLength
+      // 即当前示例同: str.slice(5,10)
+
+      // substring(startIndex, endIndex=length) 字符串切片(顾头不顾尾)
+      console.log('str substring(2): ' + str.substring(2));
+
+      // substr(startIndex, number) 字符串切片
+      console.log('str substr(3,6): ' + str.substr(3,6));
+
+      // indexOf(str, startIndex=0) 从字符中头部开始查找字符index
+      console.log('str indexOf("W"): ' + str.indexOf('W'));
+      console.log('str indexOf("l", 4): ' + str.indexOf('l', 4));
+
+      // lastIndexOf(str, startIndex=0) 从字符中尾部开始查找字符index
+      console.log('str lastIndexOf("l"): ' + str.lastIndexOf('l'));
+      console.log('str lastIndexOf("l", 4): ' + str.lastIndexOf('l', 4));
+
+      // trim() 去除字符前后空格
+      var str = '  HelloWorld ';
+      var newStr = str.trim();
+      console.log('str trim(): ' + newStr + ' length: ' + newStr.length);
+
+      // toLowerCase() 将字符串转换成小写(不改变原字符串)
+      console.log('str toLowerCase(): ' + str.toLowerCase());
+
+      // toUpperCase()  将字符串转换成大写(不改变原字符串)
+      console.log('str toUpperCase(): ' + str.toUpperCase());
+
+
+      // 示例：查找字符串中指定字符的所有位置,并保存
+      var indexArr = [];  // 生成空数组
+      var pos = str.indexOf('l'); // 初始化l在字符串中的第一个位置
+      while (pos > -1) {   // 如果在字符串所没有找到指定字符会返回-1
+        indexArr.push(pos);
+        pos = str.indexOf('l', pos + 1); // 取下一个l的位置
+      }
+      console.log('str l indexArr: ' + indexArr);
+
+    </script>
+  </body>
+</html>

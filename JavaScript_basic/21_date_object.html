@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>date日期对象</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      // 获取当前时间
+      var date = new Date();
+      console.log('date: ' + date);
+      var dateTime = new Date(2002,2,20,20,20,20); // 指定日期时间(月份是从0-11表示1-12月)
+      console.log('dateTime: ' + dateTime);
+
+
+      // 常用方法
+      // getFullYear() 获取年份
+      console.log('Year: ' + date.getFullYear());
+
+      // getMonth() 获取月份(0-11) 0:12月
+      console.log('Month: ' + date.getMonth());
+
+      // getDate() 获取月分的第几天(1-31)
+      console.log('Day: ' + date.getDate());
+
+      // getDay() 获取星期几(0-6) 0:星期天
+      console.log('Week: ' + date.getDay());
+
+      // getHours() 获取小时(0-23) 0:24时
+      console.log('Hours: ' + date.getHours());
+
+      // getMinutes() 获取分钟(0-59) 0:60分
+      console.log('Minutes: ' + date.getMinutes());
+
+      // getSeconds() 获取秒(0-59) 0:60秒
+      console.log('Seconds: ' + date.getSeconds());
+
+
+      // 日期格式化方法
+      console.log(date.toDateString()); // 星期 月 日 年
+      console.log(date.toTimeString()); // 时 分 秒 时区
+      console.log(date.toLocaleDateString()); // year/month/day
+      console.log(date.toLocaleTimeString()); // [PM/AM]hours:minutes:seconds
+      console.log(date.toLocaleString()); // year/month/day [PM/AM]hours:minutes:seconds
+      console.log(date.toUTCString()); // week, day month year hours:minutes:seconds GMT
+
+
+      // 示例: 返回当前数字时钟格式时间  如: 2020-02-01 8:08:08 PM
+      function makeNumDateTime(dateObject) {
+        var year = dateObject.getFullYear();
+        var month = dateObject.getMonth();
+        var day = dateObject.getDate();
+        var hour = dateObject.getHours();
+        var minute = dateObject.getMinutes();
+        var second = dateObject.getSeconds();
+
+        // 对小于10的月 日 分 秒前面补0, 计算PM或AM,小时换成12小时制
+        month = (month < 10 ? '0' + month : month);
+        day = (day < 10 ? '0' + day : day);
+        minute = (minute < 10 ? '0' + minute : minute);
+        second = (second < 10 ? '0' + second : second);
+        pmOrAm = (hour <= 12 ? 'AM.' : 'PM');
+        hour = (hour <= 12 ? hour : hour-12);
+        dateTimeNumStr = year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second + ' ' + pmOrAm
+        return dateTimeNumStr
+      }
+
+      dateTimeNumStr = makeNumDateTime(date);
+      dateTimeHtmlStr = '<h1>' + dateTimeNumStr + '</h1>'
+      document.write(dateTimeHtmlStr)
+      window.location.reload(); // 自动刷新页面
+      setTimeout('myrefresh()', 1000);  // 自动刷新间隔1秒
+
+    </script>
+  </body>
+</html>
