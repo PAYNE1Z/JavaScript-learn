@@ -30,4 +30,4 @@ JavaScript 学习记录
 19.	[数组array常用方法](JavaScript_basic/19_array_common_method.html)
 20.	[字符串string常用方法](JavaScript_basic/20_string_common_method.html)
 21.	[日期date对象](JavaScript_basic/21_date_object.html)
-22.	[globle对象](JavaScript_basic/22_globle_object.html)
+22.	[globle全局对象(函数方法)](JavaScript_basic/22_globle_object.html)
