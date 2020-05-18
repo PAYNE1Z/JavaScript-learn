@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>BOM对象</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      /*
+          BOM是一套操作浏览器的API（接口/方法/属性）
+       */
+
+      // 常见的BOM对象:
+      // window：代表整个浏览器窗口（window是BOM中的一个对象，并且是顶级的对象）
+      window.alert('FBI WARNING');  // 弹出警告框
+      var res = window.confirm('确定要离开吗'); // 弹出一个确认框,并提醒访客点击的内容,返回访问点击的选项
+      console.log('res: ' + res);  // 确定为 true; 取消为 false
+      var sex = window.prompt('请输入你的性别', 'male');  // 弹出一个提示框,接收访客输入,并返回, 第二个参数为默认值
+      console.log('sex: ' + sex);
+
+      // setTimeout(function, msec time); 延迟/等待操作
+      window.setTimeout(function(){
+        console.log('settimeout 2s');
+      }, 2000);  // 延迟2秒打印内容
+
+      // setInterval(function, msec time);  定时器,定时操作
+      var conut = 0;
+      window.setInterval(function () {
+        var date = new Date();
+        conut ++;
+        if (conut < 5) {
+          document.write(`<h3>${date}</h3>`);
+        } else {
+          return;
+        }
+      }, 1000);  // 每秒打印一次当前时间
+
+
+      // Navigator ：代表浏览器当前的信息，通过Navigator我们可以获取用户当前使用的是什么浏览器
+      /*
+        属性:
+        appCodeName	返回浏览器的代码名
+        appName	返回浏览器的名称
+        appVersion	返回浏览器的平台和版本信息
+        cookieEnabled	返回指明浏览器中是否启用 cookie 的布尔值
+        platform	返回运行浏览器的操作系统平台
+        userAgent	返回由客户机发送服务器的user-agent 头部的值
+      */
+      /*
+        方法:
+        javaEnabled()	指定是否在浏览器中启用Java
+        taintEnabled()	规定浏览器是否启用数据污点(data tainting)
+      */
+      // 示例: 判断浏览器是否安装了某个插件
+      // 1. 使用 navigator.plugins 列出所有已安装插件
+      function hasPlugin(pluginName){
+        var pluginName = pluginName.toLowerCase();  // 统一将插件名称转换为小写
+        var pluginsList = navigator.plugins
+        for (i=0; i<pluginsList.length; i++){
+          // 将传入的插件名称与插件列表中的名称中查找,能找到返回true,反之返回false
+          // 1. 同样将已安装的插件名称转换为小写(插件对象中的name属性可获取到插件的名称)
+          // 2. indexOf 用于在指定字符串中查找字符所有索引位置,查找不到会返回-1
+          if (pluginsList[i].name.toLowerCase().indexOf(pluginName) > -1){
+            return true;
+          }
+        }
+        return false;
+      }
+
+      var pluginName = 'native client'
+      if (hasPlugin(pluginName)){
+        console.log(`${pluginName} plugin is installed.`);
+      }else{
+        console.log(`${pluginName} plugin is not install.`);
+      };
+
+
+
+      // Location： 代表浏览器当前的地址信息，通过Location我们可以获取或者设置当前的地址信息
+      console.log('host: ' + location.host);   // 主机名:端口
+      console.log('hostname: ' + location.hostname);  // 主机名
+      console.log('URL: ' + location.href);  // 完整的请求路径
+      console.log('URI: ' + location.pathname);  // 请求URI
+      console.log('port: ' + location.port);  // 端口
+      console.log('protocol: ' + location.protocol);  // 协议
+      console.log('args: ' + location.search);  // url参数
+      // location.href = 'http://github.com';  // 跳转到指定地址(会产生历史记录)
+      // location.replace('http://github.com/PAYNE1Z');  // 跳转到指定地址(不会产生历史记录)
+      // location.reload();  // 重载整个页面
+
+      // 示例: 获取访问链接中的字符串参数并保存   http://www.baidu.com/?user=abc&pwd=123456
+      function getQureyArgs() {
+        // 1. 使用search获取字符串参数,并去掉参数符? user=jack&pwd=123456
+        var qureyStr = location.search.length > 0 ? location.search.substring(1) : '';
+        // 2. 将多个参数分割并保存到数组 user=jack,pwd=123456
+        var items = qureyStr.length ? qureyStr.split('&') : [];
+        var item = null, key = null, value = null, args = {};
+        // 3. 遍历参数数组,将参数名与值切分并保存到args对象中 {'user':'jack', 'pwd':123456}
+        for (i=0; i<items.length; i++){
+          item = items[i].split('=');
+          key = decodeURIComponent(item[0]);  // 为避免参数中包含特殊字符,进行解码操作
+          value = decodeURIComponent(item[1]);
+          if (key.length){
+            args[key] = value;
+          }
+        }
+        return args;
+      }
+      var args = getQureyArgs();
+      console.log('args.user: ' + args.user);
+      console.log('args.pwd: ' + args.pwd);
+
+
+
+
+      // History：代表浏览器的历史信息，通过History我们可以实现上一步/刷新/下一步操作（出于对用户的隐私考虑，我们只能拿到当前的浏览记录，不能拿到所有的历史记录）
+      /*
+        属性:
+        length	返回历史列表中的网址数
+      */
+     console.log('history length: ' + history.length);
+
+      /*
+        方法:
+        back()	加载 history 列表中的前一个 URL
+        forward()	加载 history 列表中的下一个 URL
+        go()	加载 history 列表中的某个具体页面
+      */
+
+
+
+      // Screen：代表用户的屏幕信息
+      /*
+        属性
+        availHeight	返回屏幕的高度（不包括Windows任务栏）
+        availWidth	返回屏幕的宽度（不包括Windows任务栏）
+        colorDepth	返回目标设备或缓冲器上的调色板的比特深度
+        height	返回屏幕的总高度
+        pixelDepth	返回屏幕的颜色分辨率（每象素的位数）
+        width	返回屏幕的总宽度
+       */
+
+    </script>
+  </body>
+</html>
