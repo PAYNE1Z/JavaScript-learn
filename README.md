@@ -38,4 +38,4 @@ JavaScript 学习记录
 
 ### 二、BOM(Browser浏览器对象模型)
 
-1.	[BOM常见对象及其属性与方法](BOM01_BOM_object.html)
+1.	[BOM常见对象及其属性与方法](BOM/01_BOM_object.html)
