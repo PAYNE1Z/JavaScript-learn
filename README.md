@@ -33,6 +33,7 @@ JavaScript 学习记录
 22.	[globle全局对象(函数方法)](JavaScript_basic/22_globle_object.html)
 
 <br/>
+
 ---
 
 ### 二、BOM(Browser浏览器对象模型)
