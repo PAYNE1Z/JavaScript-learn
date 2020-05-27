@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>节点对象的常用属性</title>
+  </head>
+  <body>
+    <div class="previous">上一个兄弟节点</div>
+    <div id="father">
+      <p>child1</p>
+      <p>child2</p>
+    </div>
+    <div class="next">一下个兄弟节点</div>
+
+    <script type="text/javascript">
+      // clild相关的属性只针对单个的节点对象取其了节点对象
+      // 如通过 getElementByClassName这种获取出来的是一个对象集合是不能取其子节点的
+      var eleNode = document.getElementById('father');
+      console.log(eleNode.childNodes);  // 获取节点对象下所有子节点
+      console.log(eleNode.firstChild);  // 获取第一个子节点
+      console.log(eleNode.lastChild);   // 获取最后一个了节点
+      console.log(eleNode.parentNode);  // 获取父节点
+      console.log(eleNode.previousSibling);  // 获取上一个兄弟节点
+      console.log(eleNode.nextSibling);  // 获取下一个兄弟节点
+
+      // 注意: 上述各div p节点之间有换行,
+      // 在IE浏览器下是能正常只取到节点内容的 NodeList(2) [p, p]
+      // 在chrome浏览器下换行符是会当成一个文本 NodeList(5) [text, p, text, p, text]
+
+      // 示例： 通过函数封装使其在各浏览器中能兼容(只取真实元素节点)
+      // 1. 获取指定节点下的所有子元素节点
+      function getChildNodes(someNode) {
+        var childNodes = someNode.childNodes;
+        var eleNodeList = [];
+        for (i=0; i<childNodes.length; i++) {
+          if (childNodes[i].nodeType === 1) {
+            eleNodeList.push(childNodes[i])
+          }
+        }
+        return eleNodeList;
+      }
+      var nodes = getChildNodes(eleNode);
+      console.log(nodes);
+
+
+      // 2. 获取指定节点的下一个兄弟元素节点
+      function getNextSibling(someNode) {
+        var nextNode = someNode.nextSibling;
+        while (nextNode && nextNode.nodeType != 1) {  // 存在下一个兄弟节点并节点类型不是1,则继续往下找
+          nextNode = nextNode.nextSibling;
+        }
+        return nextNode;
+      }
+      var nextNode = getNextSibling(eleNode);
+      console.log(nextNode);
+
+
+      // 3. 获取指定节点的上一个兄弟元素节点
+      function getPreviousSibling(someNode) {
+        var previousNode = someNode.previousSibling;
+        while (previousNode && previousNode.nodeType != 1) {  // 存在上一个兄弟节点并节点类型不是1,则继续往下找
+          previousNode = previousNode.previousSibling;
+        }
+        return previousNode;
+      }
+      var previousNode = getPreviousSibling(eleNode);
+      console.log(previousNode);
+
+
+      // 4. 获取指定节点的父元素节点
+      function getParentNode(someNode) {
+        var parentNode = someNode.parentNode;
+        while (parentNode && parentNode.nodeType != 1) {  // 存在父节点并节点类型不是1,则继续往下找
+          parentNode = parentNode.parentNode;
+        }
+        return parentNode;
+      }
+      var parentNode = getParentNode(eleNode);
+      console.log(parentNode);
+
+    </script>
+  </body>
+</html>

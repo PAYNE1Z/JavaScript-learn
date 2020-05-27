@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DOM中的节点分类及如何获取对应的对象</title>
+    <style type="text/css">
+      #box{
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+    节点分类:
+      1. 元素节点(element node)
+      2. 文本节点(text node)
+      3. 属性节点(attribue node)
+    -->
+    <h2>你喜欢什么水果</h2>
+    <p title='请选择你喜欢的水果'>多吃水果让身体更健康</p>
+    <ul id='classList'>
+      <li calss='item'>苹果</li>
+      <li class='item'>香蕉</li>
+      <li>西瓜</li>
+      <li>草莓</li>
+    </ul>
+
+    <script type="text/javascript">
+      // 1. document.getElementById(str)  通过id获取元素;返回的是一个object(单个对象)
+      var eleNode = document.getElementById('classList');
+      console.log(eleNode);
+
+      // 2. document.getElementsByTagName(str) 通过标签名获取元素;返回一个object(对象集合)
+      var eleList = document.getElementsByTagName('li'); // 获取所有li标签的元素
+      console.log(eleList.length);
+      for(i=0; i<eleList.length; i++){  // 遍历各元素
+        console.log(eleList[i]);
+      }
+
+      // 3. document.getElementsByClassName(str)  通过类名获取元素;返回一个object(对象集合)
+      var eleItem = document.getElementsByClassName('item');
+      console.log(eleItem);
+
+      // 4. getAttribute(str);  获取节点对象属性
+      var eleP = document.getElementsByTagName('p')[0];  // 可以通过索引直接取对象集合中的某个值
+      var title = eleP.getAttribute('title');  // 获取P标签中的title属性
+      console.log(title);
+
+      // 5. setAttribute(name, value);  设置或修改节点对象属性
+      eleP.setAttribute('id', 'box');  // 给p标签设置id=box属性
+      eleP.setAttribute('title', '择你所爱'); // 修改P标签中title属性
+
+    </script>
+  </body>
+</html>

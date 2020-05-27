@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>节点对象的三个重要属性</title>
+  </head>
+  <body>
+    <!--
+      在文档对象模型(DOM)中，第一个节点都是一个对象，DOM节点有三个重要的属性：
+      1. nodeName: 节点的名称(只读)
+      2. nodeValue: 节点的值
+      3. nodeType: 节点的类型
+
+      有以下规则:
+      1. 元素节点
+          nodeName 与标签名相同(不区分大小写的情况)
+          nodeValue 是 undefined 或 null
+          nodeType 是 1
+
+      2. 属性节点
+          nodeName 与属性的名称相同
+          nodeValue 是属性的值
+          nodeType 是 2
+
+      3. 文本节点
+          nodeName 永远是 #text
+          nodeValue 是文本自身
+          nodeType 是 3
+
+      4. 注释节点
+          nodeName 永远是 #comment
+          nodeValue 是 注释本身
+          nodeType 是 8
+     -->
+    <div id='box' title='我是标题'>我是一个文本<!--我是注释--></div>
+
+    <script type="text/javascript">
+      // 验证上述规则
+      // 1. 获取元素节点
+      var eleNode = document.getElementById('box');
+      console.log(`${eleNode.nodeName} : ${eleNode.nodeValue} : ${eleNode.nodeType}`);
+
+      // 2. 获取属性节点
+      var attrNode = eleNode.attributes[1];
+      console.log(`${attrNode.nodeName} : ${attrNode.nodeValue} : ${attrNode.nodeType}`);
+
+      // 3. 获取文本节点
+      var textNode = eleNode.childNodes[0];
+      console.log(`${textNode.nodeName} : ${textNode.nodeValue} : ${textNode.nodeType}`);
+
+      // 4. 获取注释节点
+      var commentNode = eleNode.childNodes[1];
+      console.log(`${commentNode.nodeName} : ${commentNode.nodeValue} : ${commentNode.nodeType}`);
+
+    </script>
+  </body>
+</html>

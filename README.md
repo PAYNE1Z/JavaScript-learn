@@ -36,6 +36,16 @@ JavaScript 学习记录
 
 ---
 
-### 二、BOM(Browser浏览器对象模型)
+### 二、BOM(Browser Object Model 浏览器对象模型)
 
 1.	[BOM常见对象及其属性与方法](BOM/01_BOM_object.html)
+
+<br/>
+
+---
+
+### 三、DOM(Document Object Model 文档对象模型)
+
+1.	[DOM中的节点分类](BOM/01_BOM_object.html)
+2.	[节点对象的三个重要属性](DOM/02_node_object_attribute.html)
+3.	[节点对象的常用属性](DOM/03_node_object_common_attribute.html)
